@@ -1,6 +1,11 @@
+FROM java:8
 
-FROM nginx
+VOLUME /tmp
 
-#当使用本地目录为源目录时，推荐使用 COPY
+ADD smcusers-0.0.1-SNAPSHOT.jar smcusers.jar
 
-COPY dist/auvtion/ /usr/share/nginx/html
+RUN sh -c 'touch /smcusers.jar'
+
+ENV JAVA_OPTS=""
+
+ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar smcusers.jar" ]
