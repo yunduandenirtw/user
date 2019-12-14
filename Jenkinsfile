@@ -66,9 +66,9 @@ pipeline {
 
           bat 'docker login -u %USERNAME% -p %PASSWORD%'
 
-          bat 'docker image build -f C:\\Users\\RUITINGWANG\\Desktop\\Dockerfile -t yunduandenirtw/smcfe:jenkinsbuild C:\\Users\\RUITINGWANG\\.jenkins\\workspace\\sba_be\\target'
+          bat 'docker image build -t 'docker-hub'/smcusers .'
 
-          bat 'docker push yunduandenirtw/smcfe:jenkinsbuild'
+          bat 'docker push yunduandenirtw/smcusers:jenkinsbuild'
 
         }   
 
