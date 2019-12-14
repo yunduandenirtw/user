@@ -68,7 +68,7 @@ pipeline {
 
           bat 'docker image build -t yunduandenirtw/smcusers .'
 
-          bat 'docker push yunduandenirtw/smcusers:jenkinsbuild'
+          bat 'docker push yunduandenirtw/smcusers:latest'
 
         }   
 
