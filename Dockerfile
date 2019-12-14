@@ -1,11 +1,9 @@
 FROM java:8
 
-VOLUME /tmp
+ENV PROJECT_ARTIFACTID="smcusers" PROJECT_VERSION="0.0.1-SNAPSHOT"
 
-ADD smcusers-0.0.1-SNAPSHOT.jar smcusers.jar
+COPY target/$PROJECT_ARTIFACTID-$PROJECT_VERSION.jar /smcusers.jar
 
-RUN sh -c 'touch /smcusers.jar'
+EXPOSE 9090
 
-ENV JAVA_OPTS=""
-
-ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar smcusers.jar" ]
+ENTRYPOINT ["java", "-jar", "smcusers.jar"]
